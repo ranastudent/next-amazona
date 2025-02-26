@@ -1,13 +1,7 @@
 "use client";
 import { ChevronUp } from "lucide-react";
 import Link from "next/link";
-
-
 import { Button } from "@/components/ui/button";
-
-import { Select, SelectContent, SelectItem, SelectTrigger } from "../ui/select";
-
-import { SelectValue } from "@radix-ui/react-select";
 import { APP_NAME } from "@/lib/constants";
 
 export default function Footer() {
