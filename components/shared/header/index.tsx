@@ -1,7 +1,7 @@
 import { Button } from "@/components/ui/button";
 import { APP_NAME } from "@/lib/constants";
 import data from "@/lib/data";
-import {   MenuIcon, Search } from "lucide-react";
+import {   MenuIcon } from "lucide-react";
 import Link from "next/link"; // ✅ Correct import
 import Image from "next/image";
 import Menu from "./menu";
