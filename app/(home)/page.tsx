@@ -5,7 +5,6 @@ import {
   getProductsForCard,
 } from "@/lib/actions/product-actions";
 import data from "@/lib/data";
-import { Card, CardContent } from "@/components/ui/card";
 import { toSlug } from "@/lib/utils";
 
 export default async function page() {
