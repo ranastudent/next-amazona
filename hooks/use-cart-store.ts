@@ -1,7 +1,7 @@
 import { create } from 'zustand'
 import { persist } from 'zustand/middleware'
 
-import { Cart, OrderItem } from '@/types'
+import { Cart, OrderItem, ShippingAddress } from '@/types'
 import { calcDeliveryDateAndPrice } from '@/lib/actions/order-actions'
 
 const initialState: Cart = {
@@ -32,7 +32,7 @@ const useCartStore = create(
       cart: initialState,
 
       addItem: async (item: OrderItem, quantity: number) => {
-        const { items, shippingAddress } = get().cart
+        const { items } = get().cart
         const existItem = items.find(
           (x) =>
             x.product === item.product &&
@@ -66,7 +66,7 @@ const useCartStore = create(
             items: updatedCartItems,
             ...(await calcDeliveryDateAndPrice({
               items: updatedCartItems,
-              shippingAddress,
+             
             })),
           },
         })
@@ -82,7 +82,7 @@ const useCartStore = create(
         return foundItem.clientId
       },
       updateItem: async (item: OrderItem, quantity: number) => {
-        const { items, shippingAddress } = get().cart
+        const { items } = get().cart
         const exist = items.find(
           (x) =>
             x.product === item.product &&
@@ -103,13 +103,13 @@ const useCartStore = create(
             items: updatedCartItems,
             ...(await calcDeliveryDateAndPrice({
               items: updatedCartItems,
-              shippingAddress,
+        
             })),
           },
         })
       },
       removeItem: async (item: OrderItem) => {
-        const { items, shippingAddress } = get().cart
+        const { items } = get().cart
         const updatedCartItems = items.filter(
           (x) =>
             x.product !== item.product ||
@@ -122,7 +122,7 @@ const useCartStore = create(
             items: updatedCartItems,
             ...(await calcDeliveryDateAndPrice({
               items: updatedCartItems,
-              shippingAddress,
+             
             })),
           },
         })
@@ -135,7 +135,7 @@ const useCartStore = create(
             shippingAddress,
             ...(await calcDeliveryDateAndPrice({
               items,
-              shippingAddress,
+              
             })),
           },
         })
@@ -149,14 +149,14 @@ const useCartStore = create(
         })
       },
       setDeliveryDateIndex: async (index: number) => {
-        const { items, shippingAddress } = get().cart
+        const { items } = get().cart
 
         set({
           cart: {
             ...get().cart,
             ...(await calcDeliveryDateAndPrice({
               items,
-              shippingAddress,
+              
               deliveryDateIndex: index,
             })),
           },
