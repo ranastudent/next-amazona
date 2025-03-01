@@ -100,7 +100,7 @@ export default function CartAddItem({ itemId }: { itemId: string }) {
                     'rounded-full w-full'
                   )}
                 >
-                  {('Cart.Go to Cart')}
+                  {('Go to Cart')}
                 </Link>
               </div>
             </div>

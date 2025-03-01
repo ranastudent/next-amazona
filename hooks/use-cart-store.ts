@@ -24,6 +24,7 @@ interface CartState {
   setShippingAddress: (shippingAddress: ShippingAddress) => Promise<void>
   setPaymentMethod: (paymentMethod: string) => void
   setDeliveryDateIndex: (index: number) => Promise<void>
+  
 }
 
 const useCartStore = create(
