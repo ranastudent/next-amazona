@@ -33,7 +33,7 @@ export default function CartButton() {
         <span className='font-bold'>{('Cart')}</span>
         {isCartSidebarOpen && (
           <div
-            className={`absolute top-[20px] z-10   w-0 h-0 border-l-[7px] border-r-[7px] border-b-[8px] border-transparent border-b-background`}
+            className={`absolute top-[20px] z-10 right-[-16px]   w-0 h-0 border-l-[7px] border-r-[7px] border-b-[8px] border-transparent border-b-background`}
           ></div>
         )}
       </div>
