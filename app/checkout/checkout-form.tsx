@@ -19,7 +19,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-// import { useToast } from "@/hooks/use-toast";
+
 
 import {
   calculateFutureDate,
@@ -38,7 +38,7 @@ import useIsMounted from "@/hooks/use-is-mounted";
 import Link from "next/link";
 import useCartStore from "@/hooks/use-cart-store";
 import ProductPrice from "@/components/shared/product/product-price";
-import { APP_NAME, AVAILABLE_DELIVERY_DATES, DEFAULT_PAYMENT_METHOD } from "@/lib/constants";
+import { APP_NAME, AVAILABLE_DELIVERY_DATES, AVAILABLE_PAYMENT_METHODS, DEFAULT_PAYMENT_METHOD } from "@/lib/constants";
 
 const shippingAddressDefaultValues =
   process.env.NODE_ENV === "development"
@@ -425,11 +425,24 @@ const CheckoutForm = () => {
                 </div>
                 <Card className="md:ml-8 my-4">
                   <CardContent className="p-4">
-                    <RadioGroup
+                  <RadioGroup
                       value={paymentMethod}
                       onValueChange={(value) => setPaymentMethod(value)}
                     >
-                     
+                      {AVAILABLE_PAYMENT_METHODS.map((pm) => (
+                        <div key={pm.name} className='flex items-center py-1 '>
+                          <RadioGroupItem
+                            value={pm.name}
+                            id={`payment-${pm.name}`}
+                          />
+                          <Label
+                            className='font-bold pl-2 cursor-pointer'
+                            htmlFor={`payment-${pm.name}`}
+                          >
+                            {pm.name}
+                          </Label>
+                        </div>
+                      ))}
                     </RadioGroup>
                   </CardContent>
                   <CardFooter className="p-4">
