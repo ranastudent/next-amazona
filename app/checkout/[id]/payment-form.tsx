@@ -24,11 +24,12 @@ import ProductPrice from '@/components/shared/product/product-price'
 export default function OrderDetailsForm({
   order,
   paypalClientId,
+
 }: {
   order: IOrder
   paypalClientId: string
   isAdmin: boolean
-  clientSecret: string | null
+
 }) {
   const router = useRouter()
   const {
