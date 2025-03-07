@@ -24,7 +24,6 @@ import ProductPrice from '@/components/shared/product/product-price'
 export default function OrderDetailsForm({
   order,
   paypalClientId,
-  clientSecret,
 }: {
   order: IOrder
   paypalClientId: string
